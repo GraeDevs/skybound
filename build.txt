@@ -1,0 +1,7 @@
+displayName = Skybound
+author = Renk
+version = 0.1
+hideCode = true
+hideResources = true
+buildIgnore = *.csproj, *.user, *.md, obj\*, bin\*, .vs\*
+modReferences = SubworldLibrary
