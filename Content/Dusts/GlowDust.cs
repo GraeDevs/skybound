@@ -14,7 +14,9 @@ namespace skybound.Content.Dusts
             dust.noGravity = false;
             dust.noLight = false;
             dust.frame = new Rectangle(0, 0, 64, 64);
-
+            dust.color.R = 102;
+            dust.color.G = 0;
+            dust.color.B = 255;
             dust.shader = new Terraria.Graphics.Shaders.ArmorShaderData(new Ref<Effect>(skybound.Instance.Assets.Request<Effect>("Effects/GlowingDust", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value), "GlowingDustPass");
         }
 
