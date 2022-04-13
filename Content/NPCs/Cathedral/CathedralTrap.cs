@@ -33,7 +33,8 @@ namespace skybound.Content.NPCs.Cathedral
             NPC.knockBackResist = 0;
             NPC.behindTiles = true;
         }
-
+        
+        //Redo this, for unique behavior instead of just up and down.
         public override void AI()
         {
             if (NPC.ai[0] < 10)
