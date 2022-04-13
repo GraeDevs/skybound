@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using skybound.Core;
 using skybound.Content;
@@ -11,7 +11,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace skybound.Content.NPCs.Cathedral
 {
-    internal class CathedralTrap : ModNPC
+    internal class SmallCathedralTrap : ModNPC
     {
         public Tile Parent;
 
@@ -22,7 +22,7 @@ namespace skybound.Content.NPCs.Cathedral
 
         public override void SetDefaults()
         {
-            NPC.width = 160;
+            NPC.width = 39;
             NPC.height = 10;
             NPC.immortal = true;
             NPC.dontTakeDamage = true;
@@ -38,10 +38,10 @@ namespace skybound.Content.NPCs.Cathedral
         {
             if (NPC.ai[0] < 10)
             {
-                NPC.velocity.Y += 1.5f; NPC.damage = 300;
+                NPC.velocity.Y += 1.5f; NPC.damage = 80;
             }
-            if (NPC.ai[0] > 40 && NPC.ai[0] < 50) { NPC.velocity.Y = -3; NPC.damage = 0; }
-            if (NPC.ai[0]++ > 120) { NPC.ai[0] = 0; NPC.velocity.Y = 0.001f; NPC.ai[1] = 0; }
+            if (NPC.ai[0] > 20 && NPC.ai[0] < 50) { NPC.velocity.Y = -3; NPC.damage = 0; }
+            if (NPC.ai[0]++ > 50) { NPC.ai[0] = 0; NPC.velocity.Y = 0.01f; NPC.ai[1] = 0; }
 
             if (NPC.velocity.Y == 0 && NPC.ai[1] != 1)
             {
@@ -65,11 +65,11 @@ namespace skybound.Content.NPCs.Cathedral
 
         public override void PostDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
         {
-            Texture2D tex2 = Request<Texture2D>("skybound/Content/Tiles/Cathedral/CathedralTrapDraw").Value;
+            Texture2D tex2 = Request<Texture2D>("skybound/Content/Tiles/Cathedral/SmallCathedralTrapDraw").Value;
 
             int count = NPC.ai[0] < 10 ? (int)NPC.ai[0] / 3 : NPC.ai[0] > 40 ? (60 - (int)NPC.ai[0]) / 4 : 3;
             for (int k = 1; k <= count; k++)
-                spriteBatch.Draw(tex2, NPC.position - screenPos + new Vector2(8, -48 - k * 28), drawColor);
+                spriteBatch.Draw(tex2, NPC.position - screenPos + new Vector2(-22, -48 - k * 12), drawColor);
         }
     }
 }
