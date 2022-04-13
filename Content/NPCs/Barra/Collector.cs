@@ -26,15 +26,10 @@ namespace skybound.Content.NPCs.Barra
 
         public override void AI()
         {
-            /*AI fields:
-             * 0: state
-             * 1: timer
-             */
             Player target = Main.player[NPC.target];
             switch (NPC.ai[0])
             {
-                case 0://waiting
-                    //npc.immortal = true;
+                case 0: //hidden
                     if (Main.player.Any(n => Vector2.Distance(n.Center, NPC.Center) <= 100))
                     {
                         NPC.ai[0] = 1;
@@ -42,11 +37,11 @@ namespace skybound.Content.NPCs.Barra
                     }
                     break;
 
-                case 1://popping up from ground
+                case 1://not hidden
                     if (NPC.ai[1]++ >= 50) NPC.ai[0] = 2;
                     NPC.TargetClosest();
                     break;
-                case 2:
+                case 2: // attack eventually
                     if(NPC.velocity.Y == 0)
                     {
                         NPC.velocity.Y = 0;
@@ -65,9 +60,6 @@ namespace skybound.Content.NPCs.Barra
                 case 1:
                     NPC.frame.Y = frameHeight + frameHeight * (int)(NPC.ai[1] / 5);
 
-                    break;
-                case 2:
-                    NPC.frame.Y = 6;
                     break;
             }
         }
