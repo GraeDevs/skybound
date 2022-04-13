@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ModLoader;
+using System;
+using skybound.Core;
 
 namespace skybound.Content.Dusts
 {
@@ -11,7 +13,7 @@ namespace skybound.Content.Dusts
         
         public override void OnSpawn(Dust dust)
         {
-            dust.noGravity = false;
+            dust.noGravity = true;
             dust.noLight = false;
             dust.frame = new Rectangle(0, 0, 64, 64);
             dust.color.R = 102;
@@ -32,6 +34,12 @@ namespace skybound.Content.Dusts
                 dust.position -= Vector2.One * 32 * dust.scale;
                 dust.customData = true;
             }
+
+            if (Main.tile[(int)dust.position.X / 16, (int)dust.position.Y / 16].HasTile && Main.tile[(int)dust.position.X / 16, (int)dust.position.Y / 16].BlockType == Terraria.ID.BlockType.Solid && Main.tileSolid[Main.tile[(int)dust.position.X / 16, (int)dust.position.Y / 16].TileType])
+            {
+                dust.velocity *= -0.5f;
+            }
+
 
             Vector2 currentCenter = dust.position + Vector2.One.RotatedBy(dust.rotation) * 32 * dust.scale;
 
