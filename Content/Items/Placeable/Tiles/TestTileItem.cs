@@ -22,7 +22,6 @@ namespace skybound.Content.Items.Placeable.Tiles
             Item.useTime = 10;
             Item.useStyle = 1;
             Item.autoReuse = true;
-            Item.rare = 2;
             Item.consumable = true;
             Item.createTile = ModContent.TileType<TestTile>();
         }
