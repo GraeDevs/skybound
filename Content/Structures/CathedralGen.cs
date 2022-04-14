@@ -66,6 +66,7 @@ namespace skybound.Content.Structures
                 [new Color(0, 0, 255)] = ModContent.TileType<CathedralBrickTile>(),
                 [new Color(255, 0, 0)] = ModContent.TileType<CathedralAccentTile>(),
                 [new Color(0, 255, 0)] = ModContent.TileType<CathedralTrapTile>(),
+                [new Color(255, 0, 212)] = ModContent.TileType<SmallCathedralTrapTile>(),
                 [new Color(150, 150, 150)] = -2,
                 [Color.Black] = -1
             };
@@ -103,6 +104,11 @@ namespace skybound.Content.Structures
 
                 placed = true;
             }
+            skyboundUtils.ObjectPlace(origin.X + 72, origin.Y + 102, (ushort)ModContent.TileType<CathedralPillarTileLarge>());
+            skyboundUtils.ObjectPlace(origin.X + 47, origin.Y + 102, (ushort)ModContent.TileType<CathedralPillarTileLarge>());
+            skyboundUtils.ObjectPlace(origin.X + 94, origin.Y + 102, (ushort)ModContent.TileType<CathedralPillarTileLarge>());
+            skyboundUtils.ObjectPlace(origin.X + 119, origin.Y + 102, (ushort)ModContent.TileType<CathedralPillarTileLarge>());
+            skyboundUtils.ObjectPlace(origin.X + 83, origin.Y + 99, (ushort)ModContent.TileType<CathedralPortalTile>());
 
             return true;
         }

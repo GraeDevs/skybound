@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "q2YU0fJ7aDEs36lHE+P8/aqjTQePnJXjhY0kVSnGhKg/itXEj2r786g0FV2nbzDsOC0PkyZ5r3YAS0PNfCySqQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\equin\\Documents\\GitHub\\skybound\\skybound.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\equin\\.nuget\\packages\\tmodloader.codeassist\\0.1.3\\tmodloader.codeassist.0.1.3.nupkg.sha512"
+  ],
+  "logs": []
+}
